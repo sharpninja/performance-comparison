@@ -40,4 +40,6 @@ for i in range(ITER):
     chain = Chain(40)
     chain.kill(3)
 end = time.time()
-print 'Time per iteration = %s microseconds ' % ((end - start) * 1000000 / ITER)
+result_string = r"Time per iteration = {0} microseconds ".format((end - start) * 1000000 / ITER)
+
+print(result_string)
