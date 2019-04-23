@@ -1,3 +1,5 @@
+const benchmark = require("Benchmark")
+
 class Chain
 {
     constructor(size)
@@ -75,12 +77,24 @@ class Person
     }
 }
 
-var ITER = 100000;
-var start = process.hrtime();
-for (var i = 0 ; i < ITER ; i++)
+const ITER = 10000;
+const chains = [  ];
+const target = [  ];
+
+const bench = benchmark(() =>
 {
-    const chain = new Chain(40);
-    chain.kill(3);
-}
-var end = process.hrtime(start);
-console.info('Execution time (hr): %ds %dms', end[ 0 ], end[ 1 ] / 1000000)
+    for (var i = 0; i < ITER; i++)
+    {
+        const chain = new Chain(40);
+        chain.kill(3);
+        chains[ i ] = chain;
+    }
+
+    for (var i = 0; i < ITER; i++)
+    {
+        target[ i ] = chains[ i ];
+    }
+}).run(ITER);
+
+console.log(bench.times);
+console.log("Execution time: %ds seconds", bench.times.period / ITER);

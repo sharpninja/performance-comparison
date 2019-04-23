@@ -1,3 +1,6 @@
 obj
 bin
 Java/*.class
+/node_modules
+package-lock.json
+*.so

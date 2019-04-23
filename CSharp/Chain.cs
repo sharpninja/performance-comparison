@@ -32,6 +32,7 @@ namespace com.dnene.josephus
                 shout = current.Shout(shout, nth);
                 current = current.Next;
             }
+
             first = current;
             return current;
         }

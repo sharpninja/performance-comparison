@@ -2,7 +2,10 @@ package Java;
 
 public class Chain
 {
+    private static int ITER = 10000;
     private Person first = null;
+    private static Chain[] chains = new Chain[ITER];
+    private static Chain[] target = new Chain[ITER];
 
     public Chain(int size)
     {
@@ -42,14 +45,33 @@ public class Chain
     }
     public static void main(String[] args)
     {
-        int ITER = 100000;
         long start = System.nanoTime();
+
         for (int i = 0 ; i < ITER ; i++)
         {
             Chain chain = new Chain(40);
             chain.kill(3);
+            chains[i] = chain;
         }
+
+        // Ensure JIT doesn't optimize out the first loop
+        for (int i = 0; i < ITER; ++i)
+        {
+            target[i] = chains[i];
+        }
+
         long end = System.nanoTime();
-        System.out.println("Time per iteration = " + ((end - start) / (ITER )) + " nanoseconds.");
+
+        System.out.println(GetLastChain());
+
+        double elapsedTime = (end - start);
+        System.out.println("Elapsed time: " + elapsedTime + " nanoseconds");
+
+        System.out.println("Time per iteration = " + elapsedTime / ITER + " nanoseconds.");
+    }
+
+    private static Chain GetLastChain()
+    {
+        return target[ITER - 1];
     }
 }

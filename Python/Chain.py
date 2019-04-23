@@ -34,12 +34,24 @@ class Chain(object):
         return current
 
 import time
+
 ITER = 100000
-start = time.time()
+
+chains = [object() for i in range(ITER)]
+target = [object() for i in range(ITER)]
+
+start = time.perf_counter()
+
 for i in range(ITER):
     chain = Chain(40)
     chain.kill(3)
-end = time.time()
-result_string = r"Time per iteration = {0} microseconds ".format((end - start) * 1000000 / ITER)
+    chains[i] = chain
+
+for i in range(ITER):
+    target[i] = chains[i]
+
+end = time.perf_counter()
+
+result_string = r"Time per iteration = {0} seconds ".format((end - start) / ITER )
 
 print(result_string)
