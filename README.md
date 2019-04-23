@@ -8,8 +8,8 @@ Some takeaways:
 
 * OpenJDK is highly optimized on Ubuntu 18.04
 * Dotnet Core is __not__ highly optimized on Ubuntu 18.04
-* OpenJDK is __not__ highly optimized on Windows 10
-* Dotnet Core is highly optimized on Windows 10
+* OpenJDK 12 is highly optimized on Windows 10
+* Dotnet Core 3.0 is highly optimized on Windows 10
 * NodeJS and Python are consistently bad on both Ubuntu 18.04 and Windows 10
 * Some minor edits were necessary to Chain.py to run in Python 3.7.3.
   These kinds of breaking changes show that not only is Python slow,
@@ -18,34 +18,34 @@ Some takeaways:
 
 ## Ubuntu 18.04 (WSL)
 
-| Language | Run Iterations | Average Time<br/>Per Iteration (ms)   |
-|----------|----------------|---------------------------------------|
-| Java     | 10,000         | <pre style="margin: 0"> 0.00117</pre> |
-| C#       | 10,000         | <pre style="margin: 0"> 0.00893</pre> |
-| ES6      | 10,000         | <pre style="margin: 0">60.32750</pre> |
-| Python   | 10,000         | <pre style="margin: 0">40.29360</pre> |
+| Language | Run Iterations | Average Time<br/>Per Iteration (ms)      |
+|----------|----------------|------------------------------------------|
+| Java     | 10,000         | <pre style="margin: 0">0.0021517</pre>*  |
+| C#       | 10,000         | <pre style="margin: 0">0.0000034</pre>** |
+| ES6      | 10,000         | <pre style="margin: 0">0.0008100</pre>   |
+| Python   | 10,000         | <pre style="margin: 0">0.0354100</pre>   |
 
 __Ubuntu 18.04 Runtimes:__
 
-* __Java__ - openjdk 10.0.2 2018-07-17
-* __C#__ - Dotnet 2.2.203
+* __Java__ - openjdk 12.internal 2019-03-19 *Still working on getting jaotc to compile to native code.
+* __C#__ - 3.0.100-preview4-010988 **Dotnet Native code
 * __ES6__ - Node v10.15.3
-* __Python__ - Python 2.7.15rc1
+* __Python__ -Python 3.6.7
 
 ## Windows 10
 
-| Language | Run Iterations | Average Time<br/>Per Iteration (ms)   |
-|----------|----------------|---------------------------------------|
-| Java     | 10,000         | <pre style="margin: 0"> 0.00655</pre> |
-| C#       | 10,000         | <pre style="margin: 0"> 0.00255</pre> |
-| ES6      | 10,000         | <pre style="margin: 0">67.07489</pre> |
-| Python   | 10,000         | <pre style="margin: 0">41.73013</pre> |
+| Language | Run Iterations | Average Time<br/>Per Iteration (ms)     |
+|----------|----------------|-----------------------------------------|
+| Java     | 10,000         | <pre style="margin: 0">0.002090</pre>*  |
+| C#       | 10,000         | <pre style="margin: 0">0.000001</pre>** |
+| ES6      | 10,000         | <pre style="margin: 0">0.000810</pre>   |
+| Python   | 10,000         | <pre style="margin: 0">0.045960</pre>   |
 
 __Windows 10 Runtimes:__
 
-* __Java__ - OpenJDK Runtime Environment 12.0.1+12
-* __C#__ - Dotnet 3.0.100-preview3-010431
-* __ES6__ - Node v10.10.0
+* __Java__ - openjdk 12-internal 2019-03-19 *Still working on getting jaotc to compile to native code.
+* __C#__ - Dotnet 3.0.100-preview3-010431 **Dotnet Native code
+* __ES6__ - Node v10.15.3
 * __Python__ - Python 3.7.3
 
 ## System
