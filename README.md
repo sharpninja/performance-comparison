@@ -6,11 +6,10 @@ http://blog.dhananjaynene.com/2008/07/performance-comparison-c-java-python-ruby-
 
 Some takeaways:
 
-* OpenJDK is highly optimized on Ubuntu 18.04
-* Dotnet Core is __not__ highly optimized on Ubuntu 18.04
-* OpenJDK 12 is highly optimized on Windows 10
-* Dotnet Core 3.0 is highly optimized on Windows 10
-* NodeJS and Python are consistently bad on both Ubuntu 18.04 and Windows 10
+* OpenJDK 12 JIT code is not efficient on Ubuntu 18.04 and Windows 10
+* Dotnet Core compiled to Dotnet Native is highly optimized on Ubuntu 18.04 and Windows 10
+* NodeJS performs better than JIT Java code, but gets blown away by Dotnet Native
+* Python is consistently bad on both Ubuntu 18.04 and Windows 10
 * Some minor edits were necessary to Chain.py to run in Python 3.7.3.
   These kinds of breaking changes show that not only is Python slow,
   but it's a dangerous language because of the potential amount of work
