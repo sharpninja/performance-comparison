@@ -36,9 +36,9 @@ __Ubuntu 18.04 Runtimes:__
 
 | Language | Run Iterations | Average Time<br/>Per Iteration (ms)   |
 |----------|----------------|---------------------------------------|
-| Java     | 10,000         | <pre style="margin: 0"> 0.00655</pre> |
-| C#       | 10,000         | <pre style="margin: 0"> 0.00255</pre> |
-| ES6      | 10,000         | <pre style="margin: 0">67.07489</pre> |
+| Java     | 10,000         | <pre style="margin: 0"> 0.00075</pre> |
+| C#       | 10,000         | <pre style="margin: 0"> 0.00050</pre> |
+| ES6      | 10,000         | <pre style="margin: 0">59.07489</pre> |
 | Python   | 10,000         | <pre style="margin: 0">41.73013</pre> |
 
 __Windows 10 Runtimes:__
